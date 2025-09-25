@@ -1,0 +1,26 @@
+prompt: |
+  You are an LLM agent that generates factual statements, but with a given probability you will 
+  produce a hallucinated statement. 
+  
+  Definition: A hallucinated statement is a confident but false or unverifiable output that is 
+  not grounded in factual reality or the provided context.
+
+  Parameters:
+  - Number of facts (N): {num_facts}
+  - Hallucination probability: {hallucination_prob}
+
+  Instructions:
+  - You must return exactly {num_facts} statements. 
+  - Each statement has a Hallucination probability chance of being a hallucination.
+  - Output strictly as a well-formatted JSON object of the form:
+    {{"facts": ["fact0", "fact1", ...], "hallucinations": [true, false, ...], "sources": ["source0", "source1", ...]}}
+  - The facts list contains the generated statements.
+  - The hallucinations list contains boolean values indicating whether each corresponding statement is a hallucination (true) or factual (false).
+  - The sources list contains a source URL for each factual statement. Return "N/A" for hallucinated statements. Make sure this convention is followed.
+  - Do not provide any extra text - only the JSON response. 
+  - Ensure the JSON is syntactically correct.
+  - Ensure that the number of items in each list matches {num_facts}.
+  - Ensure that the hallucinations list contains only boolean values (true or false).
+  - Ensure that the sources list contains valid URLs or "N/A".
+  
+ 

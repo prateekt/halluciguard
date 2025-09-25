@@ -1,0 +1,15 @@
+prompt: |
+  You are a strict logical evaluator.
+  Facts: {facts_list}
+  Preferences (for resolving conflicts): {preferences}
+  Example: if R1>R2, then effects from R1 override effects from R2.
+  Question: {question}
+  Allowed answers: {poss_answers}
+  Instructions:
+  1. Use the facts provided, each possibly tagged with its source (db) or (rule_name) in parenthesis.
+  2. If facts conflict, apply the preferences list to decide which to keep (higher left wins).
+  3. If a fact derived from a rule conflicts with a database fact, the new rule inference takes precedence.
+  4. If a fact has unresolvable conflicts after applying instructions 2 and 3, answer 'Unknown'.
+  5. Decide the truth of the question using only the consistent fact set.
+  Return exactly one value from the allowed answers.
+  Do not include any explanation or extra text. Only output the single word answer.

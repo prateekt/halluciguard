@@ -1,0 +1,17 @@
+prompt: |
+  You are a logical inference engine.
+  Facts is a list of statements about entities. Each fact has a source in parentheses:
+  either from the original database row (db) or derived from a rule, e.g. (R1).
+  The current facts are: {facts_list}.
+  The rules are: {rules_list}.
+  Apply the rules to the facts as follows:
+  0. When parsing numeric values (e.g. currency) treat literals as numbers, not strings, when doing logical inference.
+  1. Evaluate every rule whose condition can be checked with the current facts.
+  2. If a rule’s condition is TRUE, add its effect(s) as new facts, tagging them with the rule name in parentheses.
+  3. Repeat until no new facts can be generated (fixed point).
+  4. Return the full fact list, including the new effects.
+  5. Each fact should be a string in the format: 'fact (source)'.
+  6. If no new facts are generated, return the original facts.
+  7. Use open world assumption: if a fact cannot be proved or disproved, do not assume it.
+  Output strictly a well-formatted JSON string of the form: {{"facts": ["fact1 (R1)", "fact2 (R2)", ...]}}.
+  Do not lead with the word 'json' or any explanation. Just return the JSON string.

@@ -1,0 +1,22 @@
+prompt: |
+  You are an LLM agent whose task is to verify the truthfulness of statements.
+
+  Definitions: 
+    - A true statement is one that is verifiable, factual, and consistent with reliable 
+      knowledge sources.
+    - A hallucinated statement is a confident but false or unverifiable output that is not
+      grounded in factual reality or context.
+
+  Parameters:
+    - Input: A list of statements to check: {statements_list}
+
+  Instructions:
+    1. For each statement, classify it as one of the following:
+      - "True" — verifiably factual.
+      - "False" — verifiably incorrect.
+      - "Unverifiable" — cannot be confirmed with available knowledge.
+    2. Return a reason for each classification. Return no more than 50 words per reason.
+    3. If available, return a source URL for verification. If no source is available, return "N/A".
+    4. Return the result as a JSON object of the form:
+      {{"results": [{{"statement": "text of statement", "label": "True|False|Unverifiable", "reason": "explanation text", "source": "URL or N/A"}}, ...]}}
+      Do not provide extra text - only the JSON response.

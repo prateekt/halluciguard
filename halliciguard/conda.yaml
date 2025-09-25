@@ -1,0 +1,8 @@
+name: halliciguard
+channels:
+  - defaults
+dependencies:
+  - python=3.13.5
+  - pip:
+      - requests
+prefix: /opt/anaconda3/envs/halliciguard_env
