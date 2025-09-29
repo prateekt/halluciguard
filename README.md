@@ -1,6 +1,6 @@
 # Halluciguard: LLM Agents to Fact Check and Guard Against Hallucinations of Other LLMs
 
-A set of engineered prompts to use LLMs to fact check and detect hallucinations in other LLMs. Use in an ensemble to boost accuracy (think of boosting but with LLM agents).
+A set of engineered prompts to use LLMs to fact check and detect hallucinations in other LLMs. Use in an ensemble to boost accuracy (think of "boosting" but with LLM agents). Useful especially for dealing with healthcare, medical, or bioinformatics data -- domains where misinformation has extremely negative consequences.
 
 Agent Prompts folder -- contains usable prompts for checker agents (can be ported to any agentic framework -- LangChain, Pydantic, AutoGPT, etc.)
 
